@@ -1,0 +1,20 @@
+class Saloon(Model):
+     id = PrimaryKeyField(null=False)
+     seanses_id = IntegerField()
+     name = CharField(null=False, max_length=25)
+     count_place = IntegerField()
+     description = CharField(null=False, max_length=255)
+     number_of_ros = IntegerField()
+     number_of_places = IntegerField()
+
+     class Meta:
+        database  = Config.DATABASE
+
+class Tickets(Model):
+    ticket_number = PrimaryKeyField()
+    date_created = DateTimeField()
+    seanses = ForeignKeyField()
+    places =  IntegerField()
+    payed = BooleanField(null=False)
+    booking = BooleanField(null=False)
+    creashed = BooleanField(null=False)
